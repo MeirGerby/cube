@@ -12,14 +12,16 @@ def roll_two_d6() -> tuple[int, int]:
 
 
 
-def turn_decision(input_fn) -> str:
+def turn_decision(input_p: str) -> str:
     """
     when invalid characters pressed it will ask again the input
     until the user will press p/r
     """
-    while input_fn != "p" or input_fn != "r":
-        input_fn = input("choose again (p/r)")
-    return input_fn
+    while input_p != "p" or input_p != "r":
+        input_p = input("choose again (p/r)")
+        if input_p == "p" or input_p == "r":
+            break
+    return input_p
 
 def tie_breaker() -> int:
     """
@@ -50,9 +52,12 @@ def check_num(num1: int, num2: int) -> int:
         bigger = num2
     return bigger
 
-def player_turn(name: str = "p1"):
+def player_turn(name: str = "p2"):
+    name_p = name
     if name == "p1":
-        name = "p2"
-    return name
+        name_p = "p2"
+    elif name == "p2":
+        name_p = "p1"
+    return name_p
 
 

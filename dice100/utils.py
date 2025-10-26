@@ -1,11 +1,6 @@
+import game, main
 
 
-
-
-
-
-
-# print(tie_breaker())
 
 def is_bust(score: int) -> bool:
     """
@@ -40,25 +35,41 @@ def closer_to_target(a: int, b: int, target: int = 100) -> int | None:
     return win
 
 def add_score(score: int, name: str):
-    p1_score = None
-    p2_score = None
+    p1_score = 0
+    p2_score = 0
+    re_score = 0
     if name == 'p1':
-        score_num(score, "p1")
+        p1_score = score_num(score, "p1")
+        re_score += p1_score
     elif name == 'p2':
-        score_num(score, "p2")
+        p2_score = score_num(score, "p2")
+        re_score += p2_score
+    return re_score
 
-def score_num(score, name) -> int| None:
-    p1_score = None
-    p2_score = None
-    re_score = None
+
+
+def score_num(score: int, name: str) -> int:
+    p1_score = 0
+    p2_score = 0
+    re_score = 0
     if name == "p1":
         p1_score += score
         re_score =  p1_score
     elif name == "p2":
         p2_score += score
         re_score =  p2_score
-
     return re_score
+
+
+def massage(player: str, score_p1, score_p2):
+
+    if player == "p1":
+        print(f"""
+        it is the player 1 turn.
+        your score is {score_p1} 
+        player 2 score is {score_p2}
+        """)
+
 
 
 
