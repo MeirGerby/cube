@@ -34,31 +34,31 @@ def closer_to_target(a: int, b: int, target: int = 100) -> int | None:
         win = b
     return win
 
-def add_score(score: int, name: str):
-    p1_score = 0
-    p2_score = 0
-    re_score = 0
-    if name == 'p1':
-        p1_score = score_num(score, "p1")
-        re_score += p1_score
-    elif name == 'p2':
-        p2_score = score_num(score, "p2")
-        re_score += p2_score
-    return re_score
 
 
 
-def score_num(score: int, name: str) -> int:
-    p1_score = 0
-    p2_score = 0
-    re_score = 0
-    if name == "p1":
-        p1_score += score
-        re_score =  p1_score
-    elif name == "p2":
-        p2_score += score
-        re_score =  p2_score
-    return re_score
+def add_score_p1(sum_cube: int, score=0) -> int:
+    score += sum_cube
+    sum_cube = contain1(score)
+    return sum_cube
+
+
+def add_score_p2(sum_cube: int, score=0) -> int:
+    score += sum_cube
+    sum_cube = contain2(score)
+    return sum_cube
+
+def contain1(score):
+    return score
+
+def contain2(score):
+    return score
+
+
+
+
+
+
 
 
 def massage(player: str, score_p1, score_p2):
